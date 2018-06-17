@@ -1,0 +1,63 @@
+<nav class="navbar navbar-inverse navbar-test">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">GBL-Auction</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li><a [routerLink]="['/register']">Register Team</a></li>
+        <li class="active"><a href="#">Register Player</a></li>
+        <li><a href="#">View Teams</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row content">
+  <div class="col-sm-3 sidenav"></div>
+  <div class="col-sm-6 panel panel-info" style="padding: 25px 25px 25px 25px">
+    <h2>Register Player</h2>
+    <form [formGroup]="registerPlayerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="playerName">Player Name</label>
+        <input type="text" formControlName="playerName" id="playerName" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.playerName.errors }"/>
+        <div *ngIf="submitted && f.playerName.errors" class="alert-danger">
+          <div *ngIf="f.playerName.errors.required">Player Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="teamManager">Player Skill</label>
+        <input type="text" formControlName="teamManager" id="teamManager" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.playerSkill.errors }"/>
+        <div *ngIf="submitted && f.playerSkill.errors" class="alert-danger">
+          <div *ngIf="f.playerSkill.errors.required">Player Skill is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="playerLevel">PlayerLevel</label>
+        <input type="text" formControlName="playerLevel" id="playerLevel" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.playerLevel.errors }"/>
+        <div *ngIf="submitted && f.playerLevel.errors" class="alert-danger">
+          <div *ngIf="f.playerLevel.errors.required">Player Level Required is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Register Player</button>
+        <img *ngIf="loading"
+             src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+        <a [routerLink]="['/home']" class="btn btn-link">Cancel</a>
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-2 sidenav"></div>
+</div>
