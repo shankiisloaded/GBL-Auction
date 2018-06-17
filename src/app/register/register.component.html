@@ -1,0 +1,80 @@
+<nav class="navbar navbar-inverse navbar-test">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">GBL-Auction</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Home</a></li>
+        <li class="active"><a href="#">Register Team</a></li>
+        <li><a [routerLink]="['/registerPlayer']">Register Player</a></li>
+        <li><a href="#">View Teams</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLink]="['/login']"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row content">
+  <alert></alert>
+  <div class="col-sm-3 sidenav"></div>
+  <div class="col-sm-6 panel panel-info" style="padding: 25px 25px 25px 25px">
+    <h2>Register Team</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="teamName">Team name</label>
+        <input type="text" formControlName="teamName" id="teamName" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.teamName.errors }"/>
+        <div *ngIf="submitted && f.teamName.errors" class="alert-danger">
+          <div *ngIf="f.teamName.errors.required">Team Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="teamManager">Team Manager</label>
+        <input type="text" formControlName="teamManager" id= "teamManager" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.teamManager.errors }"/>
+        <div *ngIf="submitted && f.teamManager.errors" class="alert-danger">
+          <div *ngIf="f.teamManager.errors.required">Team Manager is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="gateway">Gateway</label>
+        <input type="text" formControlName="gateway" id= "gateway" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.gateway.errors }"/>
+        <div *ngIf="submitted && f.gateway.errors" class="alert-danger">
+          <div *ngIf="f.gateway.errors.required">Gateway is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username" id= "username" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+        <div *ngIf="submitted && f.username.errors" class="alert-danger">
+          <div *ngIf="f.username.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" id ="password" class="form-control"
+               [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+        <div *ngIf="submitted && f.password.errors" class="alert-danger">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">Register</button>
+        <img *ngIf="loading"
+             src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+        <a [routerLink]="['/home']" class="btn btn-link">Cancel</a>
+      </div>
+    </form>
+  </div>
+  <div class="col-sm-2 sidenav"></div>
+</div>
