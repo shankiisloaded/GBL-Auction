@@ -1,6 +1,6 @@
 export class Team {
-  teamName: string;
-  teamManager: string;
+  team_name: string;
+  team_manager: string;
   gateway: string;
   username: string;
   password: string;

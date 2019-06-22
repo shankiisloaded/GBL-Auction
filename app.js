@@ -7,13 +7,12 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 
-const serverRouter = require('./server/serverRouter');
-
 // Connecting to Mongo Local
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/GBL_AUCTION')
-  .then(() => console.log("Local Mongo connection Successful!!"))
-  .catch((err)=> console.error(err));
+require('./server/init/db');
+const eth = require('./server/controller/ethereumController/ethController');
+eth.init();
+//Intialise the ServerRouter for routing
+const serverRouter = require('./server/serverRouter');
 
 //Import the app driver
 
@@ -34,7 +33,6 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -45,5 +43,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send(err.status);
 });
-
+require('./server/model/TeamManager');
 module.exports = app;

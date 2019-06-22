@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">GBL-Auction</a>
+      <a class="navbar-brand" href="#">Payment-Network</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -35,8 +35,8 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="teamManager">Player Skill</label>
-        <input type="text" formControlName="teamManager" id="teamManager" class="form-control"
+        <label for="playerSkill">Player Skill</label>
+        <input type="text" formControlName="playerSkill" id="playerSkill" class="form-control"
                [ngClass]="{ 'is-invalid': submitted && f.playerSkill.errors }"/>
         <div *ngIf="submitted && f.playerSkill.errors" class="alert-danger">
           <div *ngIf="f.playerSkill.errors.required">Player Skill is required</div>

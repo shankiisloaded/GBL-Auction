@@ -13,6 +13,11 @@ var registerTeamSchema = new mongoose.Schema({
       type: String,
       required: true
     },
+    bcAddress: {
+      type: String,
+      required: true,
+      unique: true
+    },
     username: {
       type: String,
       required: true,
@@ -23,14 +28,12 @@ var registerTeamSchema = new mongoose.Schema({
     },
   },
   {
-    collection: 'teams'
+    collection: 'teamManager'
   }
 );
 
-registerTeamSchema.methods.registerTeam = function (team) {
 
-};
 
-var RegisterTeam = mongoose.model('teams', registerTeamSchema);
+mongoose.model('TeamManager', registerTeamSchema);
 
-module.exports = RegisterTeam;
+

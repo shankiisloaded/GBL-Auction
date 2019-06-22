@@ -13,7 +13,7 @@ export class TeamServices {
   }
 
   update(team: Team) {
-    return this.http.put('/api/updateTeamManager' + team.teamName, team);
+    return this.http.put('/api/updateTeamManager' + team.team_name, team);
   }
 
   delete(teamName: string) {

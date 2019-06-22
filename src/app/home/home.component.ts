@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
       y += Math.round(5 + Math.random() * (-5 - 5));
       dataPoints.push({ y: y});
     }*/
-    const chart = new CanvasJs.Chart('chartContainer', {
+   /* const chart = new CanvasJs.Chart('chartContainer', {
       zoomEnabled: true,
       animationEnabled: true,
       exportEnabled: true,
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
         }]
     });
 
-    chart.render();
+    chart.render();*/
   }
 
   deleteUser(id: number) {

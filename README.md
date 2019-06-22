@@ -1,1 +1,1 @@
-# GBL-Auction
+# Open Payment-Network 
